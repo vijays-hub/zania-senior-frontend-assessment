@@ -1,9 +1,9 @@
-import { DOCUMENT_TYPE, DocumentConfig } from "@/lib/types";
+import { DOCUMENT_TYPE, DocumentConfig } from "./types";
 
 // Assets
-import bankDraft from "@/assets/bank_draft.webp";
-import billOfLading from "@/assets/bill_of_lading.webp";
-import invoice from "@/assets/invoice.webp";
+import bankDraft from "../assets/bank_draft.webp";
+import billOfLading from "../assets/bill_of_lading.webp";
+import invoice from "../assets/invoice.webp";
 
 const MOCK_DOCUMENT_DATA: Array<DocumentConfig> = [
   {
