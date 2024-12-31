@@ -1,0 +1,14 @@
+.document-container {
+  padding: 2rem;
+}
+
+.document-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .document-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
