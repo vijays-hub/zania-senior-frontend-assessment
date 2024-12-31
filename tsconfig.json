@@ -14,11 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "src", // Base directory for resolving non-relative module imports
-    "paths": {
-      "@/*": ["*"] // Map `@/` to the `src` folder
-    }
+    "jsx": "react-jsx"
+    // TODO: Add custom paths for easier imports
   },
   "include": ["src"]
 }
