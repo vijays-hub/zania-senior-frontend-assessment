@@ -7,6 +7,17 @@
   gap: 1rem;
 }
 
+.sync_status {
+  position: relative;
+  height: 2rem;
+  margin: 1rem 0;
+}
+
+.last_synced {
+  margin: 1rem 0;
+  text-decoration: underline;
+}
+
 @media (min-width: 1024px) {
   .document-grid {
     grid-template-columns: repeat(3, 1fr);
