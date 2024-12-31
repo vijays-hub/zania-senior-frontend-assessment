@@ -30,8 +30,6 @@ const DocumentCard: React.FC<DocumentCardConfig> = ({
     }),
   });
 
-  console.log({ isDragging });
-
   const [, drop] = useDrop({
     accept: "CARD",
     // TODO: Add better type for item
