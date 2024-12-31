@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDrag, useDrop } from "react-dnd";
 import { DocumentConfig } from "../../../lib/types";
 import "./styles.css";
 
@@ -11,13 +12,47 @@ type DocumentCardConfig = {
   swapCard: (fromIndex: number, toIndex: number) => void;
 };
 
-const DocumentCard: React.FC<DocumentCardConfig> = ({ document, onClick }) => {
+const DocumentCard: React.FC<DocumentCardConfig> = ({
+  document,
+  index,
+  swapCard,
+  onClick,
+}) => {
   // Components Utils ---> START
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const [{ isDragging }, drag] = useDrag({
+    type: "CARD",
+    item: { index },
+    collect: (monitor) => ({
+      // Returning the isDragging prop to check if the card is being dragged!
+      isDragging: monitor.isDragging(),
+    }),
+  });
+
+  console.log({ isDragging });
+
+  const [, drop] = useDrop({
+    accept: "CARD",
+    // TODO: Add better type for item
+    drop: (item: { index: number }) => {
+      if (item.index !== index) {
+        /**
+         * Called when a card is dropped on another card. The item.index is the index
+         * of the card being dragged and index is the index of the card where it's
+         * being dropped. We will call the swapCard function to swap the cards in the
+         * documents array.
+         */
+        swapCard(item.index, index);
+        // Updating the index of the dragged card!
+        item.index = index;
+      }
+    },
+  });
   // Components Utils ---> END
 
   return (
-    <div>
+    <div ref={(node) => drag(drop(node))}>
       <div className="document-card" onClick={onClick}>
         {!imageLoaded && (
           <div className="loading-spinner-container">
