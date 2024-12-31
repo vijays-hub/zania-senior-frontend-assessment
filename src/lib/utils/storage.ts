@@ -4,7 +4,8 @@
  *
  * This is our ideal CRUD operations in a server, but we are using local storage for now.
  *
- * !! Using local-storage for simplicity. We cn try indexedDB if the data grows.
+ * !! Using local-storage for simplicity. We cn try indexedDB if the data grows. Additionally,
+ * !! if we just want the data persistence only for a session, we can use session storage.
  */
 
 import { DocumentConfig } from "../types";
