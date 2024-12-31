@@ -6,6 +6,8 @@
  *
  * !! Using local-storage for simplicity. We cn try indexedDB if the data grows. Additionally,
  * !! if we just want the data persistence only for a session, we can use session storage.
+ * 
+ * !!! Another alternative could be using a state management library like Redux or Zustand.
  */
 
 import { DocumentConfig } from "../types";
